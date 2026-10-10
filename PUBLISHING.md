@@ -61,6 +61,20 @@ Option 1 is better here, because the extra keys would otherwise travel into ever
 5. Open the `theskills.directory` PR with the generated submission copy.
 6. Skip npm and Smithery unless a concrete consumer appears.
 
+## Status
+
+| Step | State |
+| --- | --- |
+| Public GitHub repository | **Done** — <https://github.com/FZ2000/temporary-email-inbox> |
+| Tag `v0.1.0` | **Done** |
+| CI on push (`3.9`, `3.13`) | **Done** — green |
+| Apache-2.0 detected by GitHub | **Done** |
+| `npx skills add` install verified | **Done** — found 1 skill, installed `SKILL.md`, all 4 references and the script intact, frontmatter valid |
+| skills.sh listing | Not started — indexed from the public repo, no upload; add the badge once it appears |
+| ClawHub | Not started |
+| theskills.directory | Not started |
+| npm, Smithery | Deliberately skipped |
+
 ## Pre-publish checklist
 
 Registries are supply-chain surfaces, and this skill is unusually trust-sensitive: it tells an agent to install third-party inbox servers and to handle mail that hostile parties can write. Before publishing:

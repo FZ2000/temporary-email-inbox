@@ -23,6 +23,14 @@ Works with any skills-compatible client: Claude Code, DSH, Cursor, Codex, Copilo
 npx skills add FZ2000/temporary-email-inbox
 ```
 
+The CLI prompts for which agent to install to. For a non-interactive install — from a script, a container, or an agent — name the agent and pass `--yes`. Note the id is `claude-code`, not `claude`:
+
+```bash
+npx skills add FZ2000/temporary-email-inbox --yes --agent claude-code
+```
+
+It installs to `./.claude/skills/temporary-email-inbox`, or add `--global` for the user-wide directory.
+
 ### Any skills client, manually
 
 Copy `skills/temporary-email-inbox/` into your client's skills directory. Common locations:
