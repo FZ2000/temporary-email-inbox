@@ -1,0 +1,34 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        # 3.9 is the oldest syntax the sources use; 3.13 is current.
+        python-version: ["3.9", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # Without PyYAML the frontmatter tests skip themselves, and an invalid
+      # frontmatter block is the failure mode that silently drops the skill.
+      - name: Install PyYAML
+        run: python -m pip install --disable-pip-version-check PyYAML
+
+      - name: Run the test suite
+        run: python -m unittest discover -s tests -v
